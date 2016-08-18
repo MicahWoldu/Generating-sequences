@@ -19,50 +19,50 @@ The multiples of a given prime are generated as a sequence of numbers starting f
 them that is equal to that prime. This is the sieve's key distinction from using trial division to sequentially test each 
 candidate number for divisibility by each prime:
 
-function primes(num) {
-	var x = [];
-	for( var i =0; i<= num; i++) {
-		x[i] = true;
-	}
-	x[0]= false;
-	x[1]= false;
-	x[2]= true;
-	for ( var j = 2; j< num; j++) {
-		for (var k = 2; j*k <= num; k++) {
-			x[j*k] = false;
+	function primes(num) {
+		var x = [];
+		for( var i =0; i<= num; i++) {
+			x[i] = true;
 		}
+		x[0]= false;
+		x[1]= false;
+		x[2]= true;
+		for ( var j = 2; j< num; j++) {
+			for (var k = 2; j*k <= num; k++) {
+				x[j*k] = false;
+			}
+		}
+		
+		primeValues = [];
+		
+	  for (var i = 0; i< num; i ++) {
+	    if (x[i] == true) { 
+	      primeValues.push(i);
+	    }
+	  }
+	return primeValues;
 	}
-	
-	primeValues = [];
-	
-  for (var i = 0; i< num; i ++) {
-    if (x[i] == true) { 
-      primeValues.push(i);
-    }
-  }
-return primeValues;
-}
 
-primes(20);
-[2, 3, 5, 7, 11, 13, 17, 19]
+	primes(20);
+	[2, 3, 5, 7, 11, 13, 17, 19]
 
 Fibonnaci Sequence
 
 In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation Fn = Fn-1 + Fn-2 with seed values.
 
-function fibonacci(nums) {
-	
-	var fibSequence = [];
-	
-	fibSequence[0] = 0;
-	fibSequence[1] = 1;
-	
-	for (var i = 2; i < nums; i ++) {
-		fibSequence[i] = fibSequence[i-1] + fibSequence[i-2];
-	}
+	function fibonacci(nums) {
 		
-	return fibSequence;
-}
-
-fibonacci(8);
-[ 0, 1, 1, 2, 3, 5, 8, 13 ]
+		var fibSequence = [];
+		
+		fibSequence[0] = 0;
+		fibSequence[1] = 1;
+		
+		for (var i = 2; i < nums; i ++) {
+			fibSequence[i] = fibSequence[i-1] + fibSequence[i-2];
+		}
+			
+		return fibSequence;
+	}
+	
+	fibonacci(8);
+	[ 0, 1, 1, 2, 3, 5, 8, 13 ]
